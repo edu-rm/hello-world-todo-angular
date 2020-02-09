@@ -1,0 +1,49 @@
+<section>
+
+
+
+    <div class="container mt-5">
+        <!--
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let tarefa of tarefas;">{{ tarefa }} <a (click)="apagaTarefa(tarefa)" href="#">Excluir</a></li>
+        </ul>
+        -->
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th class="col pl-5">Tarefa</th>
+                    <th class="col pr-5">Ação</th>
+                </tr>
+                
+            </thead>
+            <tbody>
+                <tr *ngFor="let tarefa of tarefas">
+                    <th>{{ tarefa }}</th>
+                    <th><a href="#" (click)="apagaTarefa(tarefa)">Excluir</a></th>
+                </tr>
+
+            </tbody>
+        </table>
+
+
+    </div>
+    
+    
+    <div class="container text-center mt-5">
+        <input #valor (keyup.enter)="pegarTarefa(valor.value); valor.value=''" type="text" placeholder="Coloque aqui sua tarefa.">
+        <div>
+            <button 
+             class="btn btn-dark" 
+             (click)="pegarTarefa(valor.value); valor.value=''" 
+             >Adicionar Tarefa</button>
+        </div>
+    
+    </div>
+
+    <div class="alert alert-danger" role="alert" [style.display]="erro == true ? 'block' : 'none'">
+        {{ msgErro }}
+    </div>
+
+
+
+</section>
